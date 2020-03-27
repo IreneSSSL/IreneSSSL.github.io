@@ -3,25 +3,82 @@
 <html lang="en">
 <head>
     <title>预测考研结果</title>
-    
-    <!-- Modify the following line only. You will specific your CSS file.
-    One for the fixed, then another one for the liquid layout.
-    Simply change the file name to swith between the two. -->
-   <!--   <link href="MarkUpExercises-1.css" type="text/css" rel="stylesheet"/>     --> 
-    <link href="MarkUpExercises-2.css" type="text/css" rel="stylesheet"/>  
+    <link href="css1.css" type="text/css" rel="stylesheet"/>  
     <meta charset="UTF-8">
 </head>
 
 <body>
        
-    <div id="footer">
-        <h1>脑洞列表</h1>
-        <ul>
-            <li>预测考研结果</li>
-          
-        </ul>                    
+    <div id="a">
+        <h1>请输入十门课程的学分和成绩</h1>
+        <form method="post" id="myform" name="myform1" >
+			<div>第一门课学分： <input type="number" name="a" value=3 id="a" /> 第一门课成绩： <input type="number" name="b" value=90 id="b" /></div>
+			<br></br>
+			<div>第二门课学分： <input type="number" name="a" value=3 id="a" /> 第二门课成绩： <input type="number" name="b" value=90 id="b" /></div>
+			<br></br>
+			<div>第三门课学分： <input type="number" name="a" value=3 id="a" /> 第三门课成绩： <input type="number" name="b" value=90 id="b" /></div>
+			<br></br>
+			<div>第四门课学分： <input type="number" name="a" value=3 id="a" /> 第四门课成绩： <input type="number" name="b" value=90 id="b" /></div>
+			<br></br>
+			<div>第五门课学分： <input type="number" name="a" value=3 id="a" /> 第五门课成绩： <input type="number" name="b" value=90 id="b" /></div>
+			<br></br>
+			<div>第六门课学分： <input type="number" name="a" value=3 id="a" /> 第六门课成绩： <input type="number" name="b" value=90 id="b" /></div>
+			<br></br>
+			<div>第七门课学分： <input type="number" name="a" value=3 id="a" /> 第七门课成绩： <input type="number" name="b" value=90 id="b" /></div>
+			<br></br>
+			<div>第八门课学分： <input type="number" name="a" value=3 id="a" /> 第八门课成绩： <input type="number" name="b" value=90 id="b" /></div>
+			<br></br>
+			<div>第九门课学分： <input type="number" name="a" value=3 id="a" /> 第九门课成绩： <input type="number" name="b" value=90 id="b" /></div>
+			<br></br>
+			<div>第十门课学分： <input type="number" name="a" value=3 id="a" /> 第十门课成绩： <input type="number" name="b" value=90 id="b" /></div>
+			<br></br>
+			<div> 是否为跨考考生       <input type="checkbox" name="kuakao" value="yes"  checked="checked" /></div>
+			<div>
+			<br></br>
+		<!--下面按钮是通过submit提交实现-->
+			<input type="submit" name="g" value="Submit提交" id="g" />
+		<!--下面按钮是通过按钮调用js方法实现-->
+			<input type="button" name="h" value="button提交" id="h" οnclick="submit()" />
+			</div>
+		</form>
+
     </div>    
 
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0"></script>
+<script type="text/javascript">
 
+document.getElementById("h").addEventListener('click', function(){submit();}, false);
+
+function submit(){
+	var form =document.getElementById("myform");
+	var data = [3,89,3,64,3,69,3,72,3,65,4,76,4,66,3,87,3,56,3,68,1];
+	for( i=0;i<20;i++){
+		if(form[i].value == "") {alert('不可以调皮,要填数字！'); return}
+		if(i%2==1 && (form[i].value > 100 || form[i].value <0)){ alert('分数为0~100哦'); return}
+		if(i%2==0 && (form[i].value > 10 || form[i].value <0)){ alert("学分为0~10哦"); return}
+		data[i] = Number(form[i].value);
+	}
+	if (form[20].checked) data[20] = 0;
+	else { data[20] =1; }
+	get_predict_data(data);
+}
+
+async function get_predict_data(input){
+var sent = ["你永远是最棒的。","你是最棒的孩子！","别怕，你肯定能行！","你这个想法很了不起！","你将会成为了不起的人。","小疑有小进，大疑有大进！","自信，是迈向成功的第一步。","认真是成功的秘诀，粗心是失败的伴侣。","你瞧，通过努力，你成功了，祝贺你！","相信自己，研究就是错了再试的过程！","珍惜时间，就是珍惜生命。","因为你努力了，即使失败，也是美好的！","我相信你会尽力去把这件事情做好的。","自己去做吧，不要依赖别人。","我们找个锻炼细心的事情做一做。","路是自己选的，就要对自己负责。","你的办法真好！考虑的真全面！","继续努力，相信自己，你会做得更好！","只要努力，下次就一定能考好。","真棒！这肯定是一个“伟大”的发现。","你很会思考，真像一个小科学家！","靠着你的勤奋，就会站在那成功的金顶，傲然挺立。","你很有创见，这非常可贵，请再响亮地说一遍！","研究碰到困难，别退缩，相信自己，一定能行！","用自己的不懈努力，证明你一点儿也不比别人差。","这个问题有点儿难，但我相信你有能力去解决它！","大家齐心协力，再加把油，胜利一定会属于你的！","不仅自己认真学习，还能提醒同桌同学，真是了不起！","路，要一步一步脚踏实地地往前走，才能获得成功！","猜测是科学发现的前奏，你们已经迈出了精彩的一步！","或许，现在的他很平凡，但谁能说平凡中不孕育着伟大呢？","阳光总在风雨后，没经历挫折的风雨，怎能看到成功的彩虹？","用笑去面对困难，用泪花去迎接胜利，从小做一个坚强的男子汉。","虽然你暂时没成完成这个任务，但我知道为此你下了很大的工夫。","望你记住：“精诚所至，金石为开。”只要努力，再大的困难都能克服。","在通往知识的顶峰的路上长满了荆棘，望你不畏艰险克服困难勇往直前！","你是一个能干乖巧的好孩子，就是太任性啦！改正以后，老师会更喜欢你的！","我想，绘画除了用笔，更要用心。你是个有心的孩子，大胆地展示你的潜力吧！","取他人之长补已之短，生活中处处有学习榜样，人人都有值得效仿和学习的地方。","天才在于积累，聪明在于勤奋，不要指望幸运，要为明天成功之树，撒下一颗金色的种子。"];
+
+        //预测
+        let model = await tf.loadLayersModel('https://irenesssl.github.io/projects/01/model.json');
+        var data = [3,89,3,64,3,69,3,72,3,65,4,76,4,66,3,87,3,56,3,68,1];
+        let tf_price = tf.tensor2d(input,[1,21]);
+        prediction = model.predict(tf_price);  
+		 var readable_output = prediction.dataSync();
+		if (readable_output[0] >=readable_output[1] ) {
+			alert("啊，看起来需要更努力一点哦");
+		} else {
+		    var sentence= sent[ Math.floor(Math.random() * 39)  ];
+			alert("哇，你一定会成功！"+ sentence);
+		}
+		}
+</script>
 </body>
 </html>
