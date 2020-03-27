@@ -1,19 +1,10 @@
-body {
-    font-family: Helvetica, Arial, sans-serif;
-    color: black;
-    font-size: medium;
-    margin-left: auto;
-    margin-right: auto;    
-    overflow: auto;
-}
+
 
 img {
     border-style: solid;
     margin-top: 10px;
 }
-#content {
-    width:580px;
-}
+
 
 #desiredReportFormat {
     width: 580px;
@@ -62,8 +53,7 @@ li {
 }
 
 #content{
-	width：100%
-    left: 25%;   
+	margin-left: 25%;
 }
 
 
