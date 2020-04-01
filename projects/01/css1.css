@@ -1,4 +1,10 @@
 
+body {
+	background-image:url('background.jpg');
+	margin-left: 8%;
+	font-size:18px;
+	font-weight:bold;
+}
 
 img {
     border-style: solid;
