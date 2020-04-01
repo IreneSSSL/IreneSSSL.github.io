@@ -1,1 +1,4 @@
-
+students_data.csv 为数据集
+logisticRegression.py 为对应的python代码
+01kaoyan.html, background.jpg和css1.css为网站使用的网页
+group1-shard1of1.bin和model.json为前端TensorFlow.js框架调用的python的TensorFlow框架导出的模型
