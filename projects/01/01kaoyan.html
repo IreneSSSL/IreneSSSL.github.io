@@ -9,7 +9,7 @@
 
 <body>
        
-    <div id="a">
+    <div id="content">
         <h1>请输入十门课程的学分和成绩</h1>
         <form method="post" id="myform" name="myform1" >
 			<div>第一门课学分： <input type="number" name="a" value=3 id="a" /> 第一门课成绩： <input type="number" name="b" value=90 id="b" /></div>
@@ -32,14 +32,21 @@
 			<br></br>
 			<div>第十门课学分： <input type="number" name="a" value=3 id="a" /> 第十门课成绩： <input type="number" name="b" value=90 id="b" /></div>
 			<br></br>
-			<div> 是否为跨考考生       <input type="checkbox" name="kuakao" value="yes"  checked="checked" /></div>
+			<div> 是否为跨考考生       <input type="checkbox" name="kuakao" value="yes"  checked="checked" />     是否为表姐视频一键三连      <input type="checkbox" name="" value="yes"  checked="checked" /></div>
+			<div> </div>
 			<div>
 			<br></br>
-		<!--下面按钮是通过submit提交实现-->
-			<input type="submit" name="g" value="Submit提交" id="g" />
 		<!--下面按钮是通过按钮调用js方法实现-->
-			<input type="button" name="h" value="button提交" id="h" οnclick="submit()" />
+			<input type="button" name="h" value="提交" id="h" οnclick="submit()" />
 			</div>
+			
+			<br></br>
+			<div> 本测试使用高级人工智障算法，训练集为<a href='https://www.weibo.com/u/5993923741/' target='_blank'>@苏苏思量</a> 自拟，测试结果仅供娱乐</div>
+			<div> 欢迎关注我的<a href='https://space.bilibili.com/390902621' target='_blank'>B站</a>和<a href='https://www.weibo.com/u/5993923741/' target='_blank'>微博</a>账号哦</div>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
 		</form>
 
     </div>    
@@ -76,7 +83,7 @@ var sent = ["你永远是最棒的。","你是最棒的孩子！","别怕，你�
 			alert("啊，看起来需要更努力一点哦");
 		} else {
 		    var sentence= sent[ Math.floor(Math.random() * 39)  ];
-			alert("哇，你一定会成功！"+ sentence);
+			alert("哇，算法说看过很多人的例子，而你一定会成功！"+ sentence);
 		}
 		}
 </script>
